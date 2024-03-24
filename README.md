@@ -10,11 +10,11 @@ best practces.
 
 ## Roadmap
 
-- [ ] Create a very basic ML model for a restricted subset
+- [x] Create a very basic ML model for a restricted subset
 of the MNIST dataset in a notebook, to emulate the initial
 research phase
 
-- [ ] Create a Gradio web app to serve the model
+- [x] Create a Gradio web app to serve the model
 
 - [ ] Use DVC to incorporate the full MNIST dataset, to 
 emulate acquisition of new data
