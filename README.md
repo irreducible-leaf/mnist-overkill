@@ -16,7 +16,8 @@ research phase
 
 - [ ] Create a Gradio web app to serve the model
 
-- [ ] Use DVC to incorporate the full MNIST dataset
+- [ ] Use DVC to incorporate the full MNIST dataset, to 
+emulate acquisition of new data
 
 - [ ] Dockerize the web app
 
