@@ -19,7 +19,7 @@ research phase
 - [ ] Use DVC to incorporate the full MNIST dataset, to 
 emulate acquisition of new data
 
-- [ ] Dockerize the web app
+- [x] Dockerize the web app
 
 - [ ] Use Github Actions to automate testing of new models
 
