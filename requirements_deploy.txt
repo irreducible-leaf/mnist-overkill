@@ -1,0 +1,6 @@
+torch==2.2.1
+torchaudio==2.2.1
+torchvision==0.17.1
+gradio==4.22.0
+gradio_client==0.13.0
+pillow==10.2.0

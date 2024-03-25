@@ -51,7 +51,7 @@ def predict_image(image):
 
     return str(prediction)
 # Load the trained model
-model_path = os.path.join('experiments', 'models', 'logistic_regression_model.pth')  # Adjust the path as needed
+model_path = os.path.join('models', 'logistic_regression_model.pth')  # Adjust the path as needed
 model = load_model(model_path)
 
 # # Create Gradio interface
@@ -59,4 +59,4 @@ model = load_model(model_path)
 # label = gr.outputs.Label(num_top_classes=1)
 
 demo = gr.Interface(fn=predict_image, inputs='image', outputs='label', title="Simple Image Classifier", description="Upload an image or draw on the canvas to classify.")
-demo.launch()
+demo.launch(server_port=8080, server_name="0.0.0.0")
