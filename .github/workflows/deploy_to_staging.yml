@@ -12,6 +12,9 @@ jobs:
       name: Staging
 
     steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
     - name: SSH into EC2 instance and deploy Docker image
       uses: appleboy/ssh-action@master
       with:
@@ -22,9 +25,12 @@ jobs:
           # Install Docker
           sudo apt update
           sudo apt install -y docker.io
+          
+          # Copy Dockerfile to working directory
+          cp /path/to/Dockerfile .
 
           # Build and push Docker image
           docker build -t my-gradio-app .
-
+          
           # Pull and run Docker image
           docker run -d -p 8080:8080 --name my-gradio-app my-gradio-app
