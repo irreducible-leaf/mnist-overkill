@@ -27,4 +27,4 @@ jobs:
           docker build -t my-gradio-app .
 
           # Pull and run Docker image
-          docker run -d -p 8080:8080 --name my-gradio-app
+          docker run -d -p 8080:8080 --name my-gradio-app my-gradio-app
