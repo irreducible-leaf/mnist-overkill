@@ -13,11 +13,11 @@ RUN pip install --no-cache-dir -r requirements_deploy.txt
 # Copy the deployment files from the project root/deployment to the container's working directory
 COPY mnist_overkill/deployment /app/deployment
 
-# Copy the model architecture file small_mlp.py from the project root to the container's working directory
-COPY mnist_overkill/small_mlp.py /app/deployment/small_mlp.py
+# Copy the model architecture file model.py from the project root to the container's working directory
+COPY mnist_overkill/model.py /app/deployment/model.py
 
-# Copy the model weights file small_mlp_model.pth from the project root to the container's working directory
-COPY mnist_overkill/weights/small_mlp_model.pth /app/deployment/small_mlp_model.pth
+# Copy the model weights file weights.pth from the project root to the container's working directory
+COPY mnist_overkill/weights/weights.pth /app/deployment/weights.pth
 
 # Set the working directory to the deployment directory
 WORKDIR /app/deployment
