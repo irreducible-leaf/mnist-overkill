@@ -25,9 +25,6 @@ jobs:
 
           # Build and push Docker image
           docker build -t my-gradio-app .
-          docker tag my-gradio-app:latest <your-docker-registry>/my-gradio-app:latest
-          docker push <your-docker-registry>/my-gradio-app:latest
 
           # Pull and run Docker image
-          docker pull <your-docker-registry>/my-gradio-app:latest
-          docker run -d -p 8080:8080 --name my-gradio-app <your-docker-registry>/my-gradio-app:latest
+          docker run -d -p 8080:8080 --name my-gradio-app
