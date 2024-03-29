@@ -17,7 +17,7 @@ logging.info("Running training script...")
 
 # set paths to data
 DATA_TRAIN_PATH = 'data/train'
-LABELS_TRAIN_PATH = 'data/labels_10k.csv'
+LABELS_TRAIN_PATH = 'data/labels_20k.csv'
 LABELS_TEST_PATH = 'data/labels_test.csv'
 
 # load labels into memory
