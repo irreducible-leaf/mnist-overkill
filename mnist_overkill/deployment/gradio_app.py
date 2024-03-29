@@ -3,7 +3,7 @@ import gradio as gr
 import torch
 import numpy as np
 from PIL import Image
-from small_mlp import SmallMLP
+from model import ModelArchitecture
 
 
 # Define the function to load the model
@@ -44,7 +44,7 @@ def predict_image(image):
     return str(prediction)
 
 # Load the trained model
-model_path = os.path.join('small_mlp_model.pth')
+model_path = os.path.join('weights.pth')
 model = load_model(model_path)
 
 # Create Gradio interface
