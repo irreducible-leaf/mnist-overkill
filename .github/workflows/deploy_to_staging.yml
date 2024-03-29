@@ -25,7 +25,7 @@ jobs:
 
           # Clone the repository
           git clone https://github.com/irreducible-leaf/mnist-overkill.git
-          cd your-repo/mnist-overkill
+          cd mnist-overkill
 
           # Build and push Docker image
           sudo docker build -t my-gradio-app .
