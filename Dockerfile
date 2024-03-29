@@ -5,14 +5,19 @@ FROM python:3.10
 WORKDIR /app
 
 # Copy the requirements_deploy.txt file from the project's root directory to the container's working directory
-COPY requirements_deploy.txt /app/requirements_deploy.txt
+COPY requirements_deploy.txt .
 
 # Install the Python dependencies using pip
 RUN pip install --no-cache-dir -r requirements_deploy.txt
 
 # Copy the deployment files from the project root/deployment to the container's working directory
-# This will include the model .pth file. TODO later - get this from a dvc pull command instead
-COPY ./deployment /app/deployment
+COPY mnist_overkill/deployment /app/deployment
+
+# Copy the model architecture file small_mlp.py from the project root to the container's working directory
+COPY mnist_overkill/small_mlp.py /app/deployment/small_mlp.py
+
+# Copy the model weights file small_mlp_model.pth from the project root to the container's working directory
+COPY mnist_overkill/weights/small_mlp_model.pth /app/deployment/small_mlp_model.pth
 
 # Set the working directory to the deployment directory
 WORKDIR /app/deployment
