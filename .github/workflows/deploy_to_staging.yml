@@ -1,0 +1,33 @@
+name: Deploy to Staging
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: Staging
+
+    steps:
+    - name: SSH into EC2 instance and deploy Docker image
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          # Install Docker
+          sudo apt update
+          sudo apt install -y docker.io
+
+          # Build and push Docker image
+          docker build -t my-gradio-app .
+          docker tag my-gradio-app:latest <your-docker-registry>/my-gradio-app:latest
+          docker push <your-docker-registry>/my-gradio-app:latest
+
+          # Pull and run Docker image
+          docker pull <your-docker-registry>/my-gradio-app:latest
+          docker run -d -p 8080:8080 --name my-gradio-app <your-docker-registry>/my-gradio-app:latest
